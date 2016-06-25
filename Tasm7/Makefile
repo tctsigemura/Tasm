@@ -1,4 +1,5 @@
 all:
+	mkdir bin
 	(cd src; make)
 	jar -cmf manifest.mf Tasm7.jar -C bin .
 
@@ -9,4 +10,6 @@ install:
 
 clean:
 	(cd src; make clean)
-	rm -f *~ Tasm7.jar bin/*.class
+	rm -f *~ bin/*.class
+#	rm -f Tasm7.jar
+	rmdir bin
