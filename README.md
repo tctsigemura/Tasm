@@ -28,7 +28,7 @@ Tasm7 ディレクトリに移動し、次を実行してください。
 #### ダウンロードプログラムのインストール
 Tsend7 ディレクトリに移動し、次を実行してください。
 
-		# make install        (FreeBSD)
+    # make install        (FreeBSD)
     $ sudo make install   (MacOS X)
 
 MacOS X の場合は USBシリアル変換 IC のドライバをインストールする必要があります。
