@@ -45,7 +45,7 @@ TeC7を受信状態にして PC からプログラムを転送します。
 (※１）アセンブラの使用方法、アセンブラの文法、ダウンロード方法は、
 [TeC教科書]
 (https://github.com/tctsigemura/TecTextBook/)
-付録B「TeCクロス開発環境」をご覧ください。
+付録A「TeCクロス開発環境」をご覧ください。
 
 ### Windows の場合
 
