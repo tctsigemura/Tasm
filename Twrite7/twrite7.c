@@ -2,7 +2,7 @@
  * TeC7 Tsend7 Program
  *    Tokuyama kousen Educational Computer Ver.7
  *
- * Copyright (C) 2002-2018 by
+ * Copyright (C) 2002-2019 by
  *                      Dept. of Computer Science and Electronic Engineering,
  *                      Tokuyama College of Technology, JAPAN
  *
@@ -78,9 +78,9 @@ int main(int argc, char **argv) {
     errexit(com);
 
   /* 送信開始 */
-  printf("TeC7を受信状態にして Enter キーを押して下さい。");
-  getchar();
+  write(fd,"\033TWRITE\r\n", 9);
 
+  /* binファイルを送信 */
   while ((c=getc(fp))!=EOF) {
     printf("[%02x]",c);
     fflush(stdout);
