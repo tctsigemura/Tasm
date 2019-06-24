@@ -35,6 +35,18 @@ void errexit(char *s) {
   exit(1);
 }
 
+// 2018.6.24 macOSで書き込みのオーバーランが更に起こりやすくなった
+// エスケープの送信も含めて usleep を実行するように変更
+void writeCom(int fd, char *buf, int n) {
+  for (int i=0; i<n; i++) {
+    if (write(fd, buf+i, 1) != 1) {
+      perror("write");
+      exit(1);
+    }
+    usleep(1050);            // 2018.7.17 書き込みがオーバーランする現象が
+  }                          // 何かの条件で起こることがあった．
+}
+
 int main(int argc, char **argv) {
   struct termios st, stb;
   char   buf;
@@ -78,19 +90,15 @@ int main(int argc, char **argv) {
     errexit(com);
 
   /* 送信開始 */
-  write(fd,"\033TWRITE\r\n", 9);
+  writeCom(fd,"\033TWRITE\r\n", 9);
 
   /* binファイルを送信 */
   while ((c=getc(fp))!=EOF) {
-    printf("[%02x]",c);
+    printf("[%02x]", c);
     fflush(stdout);
     buf = c;
-    if (write(fd,&buf,1)!=1) {
-      perror("write");
-      exit(1);
-    }
-    usleep(1050);            // 2018.7.17 書き込みがオーバーランする現象が
-  }                          // 何かの条件で起こることがあった．
+    writeCom(fd, &buf, 1);
+  }
   printf("\n");
 
   /* もとに戻す。 */
