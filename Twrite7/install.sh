@@ -25,5 +25,6 @@ case `uname` in
      ;;
 esac
 
+mkdir -p ${dir}
 install -c ${own} ${grp} ${mod} ./twrite7.sh  ${dir}/twrite7
 install -c ${own} ${grp} ${mod} ./twrite7.bin ${dir}/twrite7.bin
