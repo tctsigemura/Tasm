@@ -132,7 +132,10 @@ abstract class SyntaxAnalyzer {
         v *= factor(parser, symTbl, parseOnly);
       } else {
         parser.setNextTok(false);
-        v /= factor(parser, symTbl, parseOnly);
+        int rv = factor(parser, symTbl, parseOnly);
+        if (!parseOnly) {
+          v /= rv;
+        }
       }
       token = parser.getNextTok();
     }
