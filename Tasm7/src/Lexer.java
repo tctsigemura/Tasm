@@ -140,7 +140,7 @@ class Lexer {
       char c = s.charAt(i);
       v = v * 16 + Character.digit(c, 16);
     }
-    return new Token(TokenType.NUM, s.toString(), new Integer(v));
+    return new Token(TokenType.NUM, s.toString(), Integer.valueOf(v));
   }
 
   // １０進数を数値として登録する。
@@ -151,7 +151,7 @@ class Lexer {
       char c = s.charAt(i);
       v = v * 10 + Character.digit(c, 10);
     }
-    return new Token(TokenType.NUM, s.toString(), new Integer(v));
+    return new Token(TokenType.NUM, s.toString(), Integer.valueOf(v));
   }
 
   // 数値を読み込み１０進数か１６進数か判定して登録する。
@@ -201,7 +201,7 @@ class Lexer {
       if ((char) nextCH == '\'') {
         src.append((char) nextCH);
         getnext();
-        return new Token(TokenType.NUM, src.toString(), new Integer(c));
+        return new Token(TokenType.NUM, src.toString(), Integer.valueOf(c));
       }
     }
     return addErr(src, Err.BAD_Chr);

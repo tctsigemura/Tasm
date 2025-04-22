@@ -1,5 +1,5 @@
 all:
-	mkdir bin
+	mkdir -p bin
 	(cd src; make)
 	jar -cmf manifest.mf Tasm7.jar -C bin .
 
