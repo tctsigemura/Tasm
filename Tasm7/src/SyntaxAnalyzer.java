@@ -25,7 +25,7 @@ abstract class SyntaxAnalyzer {
     int len = s.length();
     for (int i = 1; i < len - 1; i++) {
       byte b = (byte) (s.charAt(i));
-      v.add(new Byte(b));
+      v.add(Byte.valueOf(b));
     }
   }
 
@@ -37,7 +37,7 @@ abstract class SyntaxAnalyzer {
       lexer.setNextTok(false);
     } else {
       byte b = (byte) expr(lexer, symTbl, parseOnly);
-      v.add(new Byte(b));
+      v.add(Byte.valueOf(b));
     }
   }
 

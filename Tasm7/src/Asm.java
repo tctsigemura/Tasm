@@ -120,12 +120,12 @@ class Asm {
 
           // ラベルがあるなら登録する。
           if (label != null) {
-            symTbl.insert(label, new Integer(v));
+            symTbl.insert(label, Integer.valueOf(v));
           }
         } else if (nextType == TokenType.EOL || nextType == TokenType.COM) {
           // ラベルがあるなら登録する。
           if (label != null) {
-            symTbl.insert(label, new Integer(lc));
+            symTbl.insert(label, Integer.valueOf(lc));
           }
         } else {
           throw new AsmException(Err.UND_Op); // 未知のニーモニック
