@@ -2,7 +2,7 @@
 TeC Assembler.
 
 Tasmは
-(TeC7)[https://github.com/tctsigemura/TeC7]
+[TeC7](https://github.com/tctsigemura/TeC7)
 のクロス開発用のツール群です．
 クロスアセンブラ(tasm7)とMac/Unix用のダウンロードプログラム(twrite7，tsend7)，
 Windows用のダウンロードプログラム(Serial)を含んでいます．
@@ -48,8 +48,7 @@ TeC7を受信状態にしてから tsend7 コマンドを使用します．
 [詳細は（※１）参照]
 
 (※１）アセンブラの使用方法，アセンブラの文法，ダウンロード方法は，
-[TeC教科書]
-(https://github.com/tctsigemura/TecTextBook/)
+[TeC教科書](https://github.com/tctsigemura/TecTextBook/)
 付録A「TeCクロス開発環境」をご覧ください．
 
 ### Windows の場合
