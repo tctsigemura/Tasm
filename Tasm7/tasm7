@@ -5,7 +5,7 @@ java -Dfile.encoding=UTF-8 -jar /usr/local/lib/tasm/Tasm7.jar $*
 if [ $? -eq 0 ]; then
  n=$#
  src=`eval "echo \\$$n"`
- b=`expr $src : '\([^.]*\).t7'`
+ b=${src%.*}
 
  echo
  echo "[${b}.lst]"
